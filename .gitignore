@@ -1,0 +1,45 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+
+/.idea/
+/spring-handwrite.iml
+/spring-step-01/spring-step-01.iml
+/spring-step-02/spring-step-02.iml
+/spring-step-03/spring-step-03.iml
+/spring-step-04/spring-step-04.iml
+/spring-step-05/spring-step-05.iml
+/spring-step-06/spring-step-06.iml
+/spring-step-07/spring-step-07.iml
+/spring-step-08/spring-step-08.iml
+/spring-step-09/spring-step-09.iml
+/spring-step-10/spring-step-10.iml
+/spring-step-11/spring-step-11.iml
+/spring-step-12/spring-step-12.iml
+/spring-step-13/spring-step-13.iml
+/spring-step-14/spring-step-14.iml
+/spring-step-15/spring-step-15.iml
+/spring-step-16/spring-step-16.iml
+/spring-step-17/spring-step-17.iml
