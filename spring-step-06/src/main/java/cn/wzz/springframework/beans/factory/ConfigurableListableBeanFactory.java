@@ -2,7 +2,6 @@ package cn.wzz.springframework.beans.factory;
 
 
 import cn.wzz.springframework.beans.BeansException;
-import cn.wzz.springframework.beans.ListableBeanFactory;
 import cn.wzz.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import cn.wzz.springframework.beans.factory.config.BeanDefinition;
 import cn.wzz.springframework.beans.factory.config.ConfigurableBeanFactory;

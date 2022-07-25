@@ -1,6 +1,6 @@
-package cn.wzz.springframework.beans;
+package cn.wzz.springframework.beans.factory;
 
-import cn.wzz.springframework.beans.factory.BeanFactory;
+import cn.wzz.springframework.beans.BeansException;
 
 import java.util.Map;
 
