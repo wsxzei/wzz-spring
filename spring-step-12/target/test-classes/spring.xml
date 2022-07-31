@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+
+    <bean id = "userService" class="cn.wzz.springframework.test.bean.UserService"/>
+    <!--BeforeAdvice的实现类 -->
+    <bean id= "beforeAdvice" class="cn.wzz.springframework.test.bean.UserServiceBeforeAdvice"/>
+
+    <bean id = "afterReturningAdvice" class="cn.wzz.springframework.test.bean.UserServiceAfterReturningAdvice"/>
+
+    <!--设置方法拦截器, 作为Advice注入到切面信息中-->
+    <bean id="methodInterceptor" class="cn.wzz.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor">
+        <property name = "beforeAdvice" ref = "beforeAdvice"/>
+        <property name="afterReturningAdvice" ref="afterReturningAdvice"/>
+    </bean>
+
+    <!--  设置切面访问者PointAdvisor  -->
+    <bean class="cn.wzz.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+        <property name = "expression" value="execution(* cn.wzz.springframework.test.bean.IUserService.*(..))"/>
+        <property name="advice" ref = "methodInterceptor"/>
+    </bean>
+
+    <!-- 自动代理创建者 -->
+    <bean class="cn.wzz.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+
+</beans>
