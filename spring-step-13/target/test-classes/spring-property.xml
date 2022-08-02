@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+<!--测试自动替换占位符-->
+
+    <!-- 该类为BeanFactoryPostProcessor, 用于读取.properties文件内容, 替换掉bean属性值中的占位符 -->
+    <bean class="cn.wzz.springframework.beans.factory.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:token.properties"/>
+    </bean>
+
+    <bean id="userService" class="cn.wzz.springframework.test.bean.UserService">
+        <property name="token" value="${token1}.${token2}"/>
+    </bean>
+
+</beans>
