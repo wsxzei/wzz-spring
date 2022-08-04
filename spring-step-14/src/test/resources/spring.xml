@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	         http://www.springframework.org/schema/beans/spring-beans.xsd
+		 http://www.springframework.org/schema/context">
+
+    <!--测试@Component注解, 自动注册bean定义-->
+    <context:component-scan base-package="cn.wzz.springframework.test.bean"/>
+
+    <!--  配置AutowiredAnnotationBeanPostProcessor用于扫描@Autowired, @Value等用于自动注入属性的注解  -->
+    <bean class="cn.wzz.springframework.context.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+    <!-- 配置PropertyPlaceholderConfigure, 实现了BeanFactoryPostProcessor用于读取.properties文件, 修改属性值中的占位符 -->
+    <bean class="cn.wzz.springframework.beans.factory.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:token.properties"/>
+    </bean>
+</beans>
