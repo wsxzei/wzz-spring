@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <bean id="beforeAdvice" class="cn.wzz.springframework.test.bean.SpouseAdvice"/>
+
+    <bean id="methodInterceptor" class="cn.wzz.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor">
+        <property name="beforeAdvice" ref="beforeAdvice"/>
+    </bean>
+
+    <!-- 切面拦截Wife中的方法 -->
+    <bean class="cn.wzz.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+        <property name="expression" value="execution(* cn.wzz.springframework.test.bean..*(..))"/>
+        <property name="advice" ref="methodInterceptor"/>
+    </bean>
+
+    <!--自动代理构造者通过实现BeanPostProcessor参与到Bean对象的生命周期-->
+    <bean class="cn.wzz.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+    <bean id="husband" class="cn.wzz.springframework.test.bean.Husband">
+        <property name="wife" ref="wife"/>
+    </bean>
+
+    <bean id="wife" class="cn.wzz.springframework.test.bean.Wife">
+        <property name="husband" ref="husband"/>
+<!--        <property name="husbandMother" ref="husbandMother"/>-->
+    </bean>
+
+<!--    <bean id="husbandMother" class="cn.wzz.springframework.test.bean.HusbandMother"/>-->
+</beans>
