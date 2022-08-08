@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <!-- 定义类型转换工厂, 应用上下文的refresh方法中会通过FactoryBean获取到ConversionService对象, 并赋值给bean工厂的conversionService属性 -->
+    <bean id = "conversionService" class="cn.wzz.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters" ref="converters"/>
+    </bean>
+
+    <!--用户定义的转换器集合, 暴露Set对象的FactoryBean-->
+    <bean id="converters" class="cn.wzz.springframework.test.converter.ConvertersFactoryBean"/>
+
+    <bean id="husband" class="cn.wzz.springframework.test.bean.Husband">
+        <property name="age" value="28"/>
+        <property name="marriageDate" value="2022-08-08"/>
+    </bean>
+</beans>
