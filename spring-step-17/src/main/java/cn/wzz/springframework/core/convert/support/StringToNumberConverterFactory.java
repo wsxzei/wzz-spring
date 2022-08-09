@@ -12,9 +12,9 @@ public class StringToNumberConverterFactory implements ConverterFactory<String, 
     }
 
     private static final class StringToNumber<T extends Number> implements Converter<String, T>{
-        private Class targetClass;
+        private Class<T> targetClass;
 
-        public StringToNumber(Class targetClass){
+        public StringToNumber(Class<T> targetClass){
             this.targetClass = targetClass;
         }
 
@@ -23,7 +23,7 @@ public class StringToNumberConverterFactory implements ConverterFactory<String, 
             if(source.isEmpty()){
                 return null;
             }
-            return (T) NumberUtils.parseNumber(source, targetClass);
+            return NumberUtils.parseNumber(source, targetClass);
         }
     }
 }
