@@ -57,8 +57,9 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegisterSupport imp
 
         //单例对象缓存中没有, 需要进行bean的实例化
         BeanDefinition beanDefinition = getBeanDefinition(name);
-        if(beanDefinition == null)
-            throw new BeansException("The bean named [" + name +"] doesn't exist" );
+        // 如果 beanDefinition为空, 在getBeanDefinition中会抛出异常!
+//        if(beanDefinition == null)
+//            throw new BeansException("The bean named [" + name +"] doesn't exist" );
 
         Object bean = createBean(name, beanDefinition, args);
 
